@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1> <%= date %> </h1>
+        <nav>
+            <ul class="nav">
+                <a id="personalButton"> PERSONAL </a>
+                <a id="workButton"> WORK </a>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="flexContainer">
+        <div class="personal">
+            <h1 class="subTittle"> Personal List </h1>
+            <ul>
+                <% if (locals.personalItems) { %>
+                    <% for (var i = 0; i < personalItems.length; i++) { %>
+                    <li> <%= personalItems[i] %></li>
+                <% }} %>
+            </ul>
+            <form action="/" method="POST">
+                <input class="inputBox" type="text" name="newPersonal" placeHolder="New List Item" required>
+                <input class="submitButton" type="submit" value="ADD">
+            </form>
+        </div>
+
+        <div class="work">
+            <h1 class="subTittle"> Work List </h1>
+            <ul>
+                <% if (locals.workItems) { %>
+                    <% for (var i = 0; i < workItems.length; i++) { %>
+                    <li> <%= workItems[i] %> </li>
+                <% }} %>
+            </ul>
+            <form action="/" method="POST">
+                <input class="inputBox" type="text" name="newWork" placeHolder="New List Item" required>
+                <input class="submitButton" type="submit" value="ADD">
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h1> Copyright © 2023 </h1>
+    </div>
+
+    <% if (angle === true) { %>
+        <script>
+            $("html").addClass("newBody");
+            $(".work").css("display", "block");
+            $(".personal").css("display", "none");
+        </script>
+    <% } %>
+
+    <script>
+
+        var animating = false;
+
+        $("li").click(function() {
+            $(this).toggleClass("lineThrough");
+        })
+        
+        $("#personalButton").click(function() {
+            if(animating === false)
+            {
+                animating = true;
+                $("html").removeClass("newBody");
+                $(".work").fadeOut( function() {
+                    $(".personal").fadeIn( function() {
+                        animating = false;
+                        });
+                     });
+            }
+
+        })
+        $("#workButton").click(function() {
+            if(animating === false)
+            {
+                animating = true;
+                $("html").addClass("newBody");
+                $(".personal").fadeOut( function() {
+                    $(".work").fadeIn( function() {
+                        animating = false;
+                        });
+                    })
+            }
+
+        })
+    </script>
+</body>
+</html>

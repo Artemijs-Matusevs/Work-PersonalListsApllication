@@ -1,0 +1,170 @@
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 55deg;
+  }
+
+
+*{
+    margin: 0;
+    padding: 0;
+    caret-color: transparent;
+    overflow-x: hidden;
+}
+
+html{
+    background: linear-gradient(var(--a), #252422 70%, #CCC5B9 70.2%);
+    height: 100%;
+    transition: --a 0.5s;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.newBody{
+    --a:305deg;
+}
+
+
+
+
+.flexContainer{
+    display: flex;
+    width: 100vw;
+    gap: 100px;
+    justify-content: center;
+    margin-bottom: 200px;
+    margin-top: 100px;
+    padding: 20px 0;
+}
+
+.subTittle{
+    font-size: 3rem;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    color: #FFFCF2;
+}
+
+.personal{
+    box-shadow: 0px 0px 10px #403D39;
+    width: 40vw;
+    text-align: center;
+}
+
+.work{
+    box-shadow: 0px 0px 10px #403D39;
+    width: 40vw;
+    text-align: center;
+    display: none;
+}
+
+li{
+    text-decoration: none;
+    list-style: none;
+    text-align: center;
+    color: #FFFCF2;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+li:hover{
+    color: #EB5E28;
+}
+
+ul{
+    display: inline-block;
+}
+
+input{
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    color: white;
+}
+
+.submitButton{
+    width: 270px;
+    height: 55px;
+    border: none;
+    background-color: #CCC5B9;
+    color: #FFFCF2;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.submitButton:hover{
+    background-color: #EB5E28;
+    color: #252422;
+}
+
+.inputBox{
+    width: 270px;
+    height: 55px;
+    border: none;
+    background-color: transparent;
+    box-shadow: 0px 0px 5px #403D39;
+
+}
+
+
+
+.header{
+    background-color: #252422;
+    color: #FCA311;
+    height: 7vh;
+    padding: 25px;
+    overflow: hidden;
+}
+
+a:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.nav{
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+
+.footer{
+    background-color: #252422;
+    color: #FCA311;
+    height: 75px;
+    padding: 25px;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    display: flex;
+    justify-content: right;
+    overflow: hidden;
+}
+
+.footer h1{
+    margin-right: 50px;
+}
+
+/* CLASSES TO TOGGLE IN JS */
+.lineThrough{
+    text-decoration: line-through;
+    text-decoration-color: #EB5E28;
+}
+
+
+
+
+/*  MEDIA QUERIES  */
+@media (max-width: 900px){
+    .flexContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .personal{
+        width: 90vw;
+    }
+
+    .work{
+        width: 90vw;
+    }
+}
